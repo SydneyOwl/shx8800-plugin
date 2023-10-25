@@ -11,7 +11,7 @@ namespace SQ5R
             {
                 if (args[0] == "transjson")
                 {
-                    Stream s = new FileStream(args[1], FileMode.Open);
+                    Stream s = new FileStream(@args[1], FileMode.Open);
                     ClassTheRadioData deserializedObject = ClassTheRadioData.CreatObjFromFile(s);
                     string jsonData = JsonConvert.SerializeObject(deserializedObject);
                     Console.WriteLine(jsonData);
