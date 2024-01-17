@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.IO;
+using Newtonsoft.Json;
 using System.Runtime.Serialization.Formatters.Binary;
 namespace SQ5R
 {
@@ -19,7 +21,7 @@ namespace SQ5R
                 if (args[0] == "transfile")
                 {
                     var radioData = JsonConvert.DeserializeObject<ClassTheRadioData>(@args[2]);
-                    using FileStream fs = File.Create(@args[1]);
+                    FileStream fs = File.Create(@args[1]);
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
                     binaryFormatter.Serialize(fs, radioData);
                 }
